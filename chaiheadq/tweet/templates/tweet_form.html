@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}
+chai aur tweet
+{% endblock %}
+
+{% block content %}
+
+<h1 class="text-center mt-4">Broo!!! Tweet mat krna ye scam hai</h1>
+
+<h2> {% if form.instance.pk %} 
+    Edit Tweet  
+    {% else %}
+    Create Tweet
+     {% endif %} 
+
+     <form method="post" enctype="multipart/form-data" class="form">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button class="btn btn-warning" type="submit">
+            submit
+
+        </button>
+     </form>
+     <a class="btn btn-primary mt-4" href="{% url 'tweet_list' %}">
+        back to tweet list
+     </a>
+
+</h2>
+
+{% endblock %}
